@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       session[:user_id] = @user.id
-      redirect_to pages_index_path, notice: "Logged in as #{@user.email}!"
+      redirect_to tools_path, notice: "Logged in as #{@user.email}!"
     else
       redirect_to request.referer, notice: "signup failed !"
     end
