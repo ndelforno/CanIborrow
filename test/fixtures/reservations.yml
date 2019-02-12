@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tool_id: 
+  user_id: 
+  reservation_time_start: 
+  reservation_time_end: 
+  date: 2019-02-12
+
+two:
+  tool_id: 
+  user_id: 
+  reservation_time_start: 
+  reservation_time_end: 
+  date: 2019-02-12
