@@ -1,0 +1,12 @@
+<h1>Create your tool</h1>
+<%= form_for @tool do |f| %>
+<h3><%= f.label :name %></h3>
+<%= f.text_field :name  %>
+<h3><%= f.label :description %></h3>
+<%= f.text_area :description %>
+<h3><%= f.label :price %></h3>
+<%= f.number_field :price %>
+<h3><%= f.label :address %></h3>
+<%= f.text_area :address %>
+<%= f.submit "add Tool" %>
+<% end %>
