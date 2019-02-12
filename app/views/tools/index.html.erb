@@ -1,0 +1,11 @@
+<h1>Tools index</h1>
+
+  <% @tools.each do |tool|%>
+  <div class="tool">
+    <h1><%= tool.name %></h1>
+    <p><%= tool.description %></p>
+    <p><%= tool.price  %>$/hour</p>
+    <p><%= tool.address %></p>
+    <p><%= tool.user.first_name %></p>
+  </div>
+  <% end  %>
