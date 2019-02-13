@@ -5,3 +5,11 @@
 <p><%= @tool.price  %>$/hour</p>
 <p><%= @tool.address %></p>
 <p><%= @tool.user.first_name %></p>
+
+<h2>Borrow this tool:</h2>
+
+<% if current_user %>
+  <%= render partial: 'reservations/form', locals: {tool: @tool, reservation: @reservation} %>
+<% else %>
+  <p>if you want to borrow this tools, please <%= link_to 'Log In', new_session_path %></p>
+<% end %>

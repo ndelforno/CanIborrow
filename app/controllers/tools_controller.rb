@@ -6,6 +6,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find_by(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
