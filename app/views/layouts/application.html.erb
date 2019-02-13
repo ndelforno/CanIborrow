@@ -8,8 +8,28 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <div class="nav_bar">
+    <nav>
+      <ul class="header_nav">
+        <li><%= link_to 'Home', tools_path %></li>
+      <% if current_user %>
+        <li>Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %></li>
+        <li><%= link_to 'Log out', session_path("current"), :method => :delete  %></li>
+        <li><%= link_to 'Add tool', new_tool_path %></li>
+      <% else %>
+        <li><%= link_to 'Log In', new_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+      <% end %>
+      </nav>
+    </ul>
+  </div>
 
+  </header>
   <body>
     <%= yield %>
   </body>
+  <footer>
+
+  </footer>
 </html>
