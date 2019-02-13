@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :users
   resources :tools
   resources :reservations
+  resources :sessions
 end
