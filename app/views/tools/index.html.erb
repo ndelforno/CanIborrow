@@ -7,5 +7,6 @@
     <p><%= tool.price  %>$/hour</p>
     <p><%= tool.address %></p>
     <p><%= tool.user.first_name %></p>
+    <p><%= link_to 'see tool', tool_path(tool) %></p>
   </div>
   <% end  %>
