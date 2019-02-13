@@ -1,0 +1,8 @@
+<%= form_for([tool, reservation]) do |f| %>
+  <h1><%= f.label :date %></h1>
+  <%= f.date_field :date%>
+  <h1><%= f.label :reservation_time_start %></h1>
+  <%= f.time_field :reservation_time_start%>
+  <h1><%= f.label :reservation_time_end %></h1>
+  <%= f.time_field :reservation_time_end %>
+<% end  %>
