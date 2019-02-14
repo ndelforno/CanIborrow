@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("turbolinks:load", function(event) {
   console.log("DOM fully loaded and parsed")
 
   if(document.getElementById('mapid')){

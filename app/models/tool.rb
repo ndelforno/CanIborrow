@@ -3,7 +3,6 @@ class Tool < ApplicationRecord
   has_many :reservations
 
   def self.search(search)
-    p search
     if search
        @tools = Tool.where("name like ?", "%#{search}%")
     else
