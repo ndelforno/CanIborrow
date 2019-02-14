@@ -1,5 +1,12 @@
 <h1>Tools index</h1>
 
+  <div class="search_bar">
+    <%= form_tag(tools_path, {:id => 'search_form'}) do %>
+    <%= text_field_tag :tool %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
   <% @tools.each do |tool|%>
   <div class="tool">
     <h1><%= tool.name %></h1>

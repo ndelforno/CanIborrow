@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+  console.log("DOM fully loaded and parsed")
+
   if(document.getElementById('mapid')){
+
     var mymap = L.map('mapid');
     var address = document.getElementById("address");
+    console.log(address);
     var addressText = address.innerText;
+
     mymap.setView([43.6532, -79.3832], 13);
 
     if(address){
