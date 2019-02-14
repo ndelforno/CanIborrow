@@ -4,6 +4,8 @@ document.addEventListener("turbolinks:load", function(event) {
 
     var mymap = L.map('mapindex');
 
+    var useraddress = L.marker([51.5, -0.09]).addTo(mymap);
+
     mymap.setView([43.6532, -79.3832], 13);
 
 
