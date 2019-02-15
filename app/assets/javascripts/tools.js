@@ -29,10 +29,10 @@ document.addEventListener("turbolinks:load", function(event) {
         data: '',
         dataType: 'json',
       }).then(function(response){
-        var lat = response.data[0].lat;
-        var long = response.data[0].lon;
-        mymap.setView([lat, long], 13)
-        var marker = L.marker([lat,long],
+        var userAddressLat = response.data[0].lat;
+        var userAddressLong = response.data[0].lon;
+        mymap.setView([userAddressLat, userAddressLong], 13)
+        var marker = L.marker([userAddressLat,userAddressLong],
         {icon: homeIcon})
         .addTo(mymap);
       });
@@ -44,10 +44,10 @@ document.addEventListener("turbolinks:load", function(event) {
         data: '',
         dataType: 'json',
       }).then(function(response){
-        var lat = response.data[0].lat;
-        var long = response.data[0].lon;
-        mymap.setView([lat, long], 13)
-        var marker = L.marker([lat,long]).addTo(mymap);
+        var toolAddressLat = response.data[0].lat;
+        var toolAddressLong = response.data[0].lon;
+        mymap.setView([toolAddressLat, toolAddressLong], 13)
+        var marker = L.marker([toolAddressLat,toolAddressLong]).addTo(mymap);
       });
     }
 
@@ -59,6 +59,10 @@ document.addEventListener("turbolinks:load", function(event) {
       }).addTo(mymap);
     }
 
+    mymap.fitBounds([
+      [userAddressLat,userAddressLong],
+      [toolAddressLat,toolAddressLong]
+    ]);
 
 
     }
