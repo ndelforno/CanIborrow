@@ -7,6 +7,7 @@ document.addEventListener("turbolinks:load", function(event) {
     var toolAddressText = toolAddress.innerText;
     var userAddress = document.getElementById("user_address")
     var userAddressText = userAddress.innerText
+    var arrayOfLatLong = []
 
     var homeIcon = L.icon({
       iconUrl: "https://image.flaticon.com/icons/png/128/25/25694.png",
@@ -31,6 +32,7 @@ document.addEventListener("turbolinks:load", function(event) {
       }).then(function(response){
         var userAddressLat = response.data[0].lat;
         var userAddressLong = response.data[0].lon;
+        arrayOfLatLong.push([userAddressLat,userAddressLong])
         mymap.setView([userAddressLat, userAddressLong], 13)
         var marker = L.marker([userAddressLat,userAddressLong],
         {icon: homeIcon})
@@ -46,6 +48,7 @@ document.addEventListener("turbolinks:load", function(event) {
       }).then(function(response){
         var toolAddressLat = response.data[0].lat;
         var toolAddressLong = response.data[0].lon;
+        arrayOfLatLong.push([toolAddressLat,toolAddressLong])
         mymap.setView([toolAddressLat, toolAddressLong], 13)
         var marker = L.marker([toolAddressLat,toolAddressLong]).addTo(mymap);
       });
@@ -58,11 +61,15 @@ document.addEventListener("turbolinks:load", function(event) {
         accessToken: 'pk.eyJ1IjoibmRlbGZvcm5vIiwiYSI6ImNqbzY2MzlyZTBoczUzcW5sc2k3dGFsZ2YifQ.JL97VOzlsaPc4uDrUwlAnw'
       }).addTo(mymap);
     }
+    var testarray = [];
+    testarray.push([1,1])
+    testarray.push([4,4])
+    console.log(testarray);
+    console.log(arrayOfLatLong);
+    var bounds = new L.LatLngBounds(arrayOfLatLong);
+    console.log(bounds);
+    mymap.fitBounds(bounds);
 
-    mymap.fitBounds([
-      [userAddressLat,userAddressLong],
-      [toolAddressLat,toolAddressLong]
-    ]);
 
 
     }
