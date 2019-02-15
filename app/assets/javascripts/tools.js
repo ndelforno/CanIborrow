@@ -12,7 +12,7 @@ document.addEventListener("turbolinks:load", function(event) {
       iconUrl: "https://image.flaticon.com/icons/png/128/25/25694.png",
       shadowUrl: '',
 
-      iconSize:     [38, 95], // size of the icon
+      iconSize:     [30, 30], // size of the icon
       shadowSize:   [50, 64], // size of the shadow
       iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
       shadowAnchor: [4, 62],  // the same for the shadow
@@ -20,6 +20,22 @@ document.addEventListener("turbolinks:load", function(event) {
     });
 
     mymap.setView([43.6532, -79.3832], 13);
+
+    if(userAddress){
+      console.log(userAddress);
+      axios({
+        url: "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + userAddressText,
+        method: 'get',
+        data: '',
+        dataType: 'json',
+      }).then(function(response){
+        var lat = response.data[0].lat;
+        var long = response.data[0].lon;
+        mymap.setView([lat, long], 13)
+        var marker = L.marker([lat,long],
+        {icon: homeIcon})
+        .addTo(mymap);
+      });
 
     if(toolAddress){
       axios({
@@ -43,21 +59,7 @@ document.addEventListener("turbolinks:load", function(event) {
       }).addTo(mymap);
     }
 
-    if(userAddress){
-      console.log(userAddress);
-      axios({
-        url: "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + userAddressText,
-        method: 'get',
-        data: '',
-        dataType: 'json',
-      }).then(function(response){
-        var lat = response.data[0].lat;
-        var long = response.data[0].lon;
-        mymap.setView([lat, long], 13)
-        var marker = L.marker([lat,long],
-        {icon: homeIcon})
-        .addTo(mymap);
-      });
+
 
     }
 
