@@ -7,17 +7,20 @@
     <% end %>
   </div>
 
-  <% @tools.each do |tool|%>
-  <div class="tool">
-    <h1><%= tool.name %></h1>
-    <p><%= tool.description %></p>
-    <p><%= tool.price  %>$/hour</p>
-    <p><%= tool.address %></p>
-    <p><%= tool.user.first_name %></p>
-    <p><%= link_to 'see tool', tool_path(tool) %></p>
+  <div class="row">
+    <% @tools.each do |tool|%>
+      <div class="card">
+        <div class="card-body" style="width: 18rem;">
+          <h1 class="card-title"><%= tool.name %> <%= tool.price  %>$/hour</h1>
+          <p class="card-text"><%= tool.description %></p>
+          <p><%= tool.address %></p>
+          <p>User: <%= tool.user.first_name %></p>
+          <a href=<%= "/tools/#{tool.id}"%> class="btn btn-primary">See posting</a>
+        </div>
+      </div>
+    <% end  %>
   </div>
-  <% end  %>
 
   <div id="mapindex">
-    
+
   </div>
