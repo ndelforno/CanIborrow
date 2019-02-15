@@ -8,6 +8,17 @@ document.addEventListener("turbolinks:load", function(event) {
     var userAddress = document.getElementById("user_address")
     var userAddressText = userAddress.innerText
 
+    var homeIcon = L.icon({
+      iconUrl: "https://image.flaticon.com/icons/png/128/25/25694.png",
+      shadowUrl: '',
+
+      iconSize:     [38, 95], // size of the icon
+      shadowSize:   [50, 64], // size of the shadow
+      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+      shadowAnchor: [4, 62],  // the same for the shadow
+      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
     mymap.setView([43.6532, -79.3832], 13);
 
     if(toolAddress){
@@ -43,7 +54,9 @@ document.addEventListener("turbolinks:load", function(event) {
         var lat = response.data[0].lat;
         var long = response.data[0].lon;
         mymap.setView([lat, long], 13)
-        var marker = L.marker([lat,long]).addTo(mymap);
+        var marker = L.marker([lat,long],
+        {icon: homeIcon})
+        .addTo(mymap);
       });
 
     }
