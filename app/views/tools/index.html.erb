@@ -1,17 +1,10 @@
-<h1>Tools index</h1>
 
-  <div class="search_bar">
-    <%= form_tag(tools_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %>
-    <% end %>
-  </div>
 
   <div class="row">
     <% @tools.each do |tool|%>
       <div class="card">
         <div class="card-body" style="width: 18rem;">
-          <h1 class="card-title"><%= tool.name %> <%= tool.price  %>$/hour</h1>
+          <h1 class="card-title"><%= tool.name %> - <%= tool.price  %>$/hour</h1>
           <p class="card-text"><%= tool.description %></p>
           <p><%= tool.address %></p>
           <p>User: <%= tool.user.first_name %></p>
