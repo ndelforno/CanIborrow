@@ -30,8 +30,9 @@ document.addEventListener("turbolinks:load", function(event) {
         data: '',
         dataType: 'json',
       }).then(function(response){
-        var userAddressLat = response.data[0].lat;
-        var userAddressLong = response.data[0].lon;
+        const userAddressLat = response.data[0].lat;
+        const userAddressLong = response.data[0].lon;
+        var corner1 = [userAddressLat,userAddressLong]
         arrayOfLatLong.push([userAddressLat,userAddressLong])
         mymap.setView([userAddressLat, userAddressLong], 13)
         var marker = L.marker([userAddressLat,userAddressLong],
@@ -46,8 +47,8 @@ document.addEventListener("turbolinks:load", function(event) {
         data: '',
         dataType: 'json',
       }).then(function(response){
-        var toolAddressLat = response.data[0].lat;
-        var toolAddressLong = response.data[0].lon;
+        const toolAddressLat = response.data[0].lat;
+        const toolAddressLong = response.data[0].lon;
         arrayOfLatLong.push([toolAddressLat,toolAddressLong])
         mymap.setView([toolAddressLat, toolAddressLong], 13)
         var marker = L.marker([toolAddressLat,toolAddressLong]).addTo(mymap);
