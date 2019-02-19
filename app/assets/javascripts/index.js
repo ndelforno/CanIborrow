@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function(event) {
 
-  if(document.getElementById('mapindex')){
+  if(document.getElementById('mapindex') && document.getElementById("user_address" ) ){
 
     var mymap = L.map('mapindex');
     var userAddress = document.getElementById("user_address")

@@ -5,8 +5,10 @@ document.addEventListener("turbolinks:load", function(event) {
     var mymap = L.map('mapid');
     var toolAddress = document.getElementById("address");
     var toolAddressText = toolAddress.innerText;
-    var userAddress = document.getElementById("user_address")
-    var userAddressText = userAddress.innerText
+    if (document.getElementById("user_address")) {
+      var userAddress = document.getElementById("user_address")
+      var userAddressText = userAddress.innerText
+    }
     var arrayOfLatLong = []
 
     var homeIcon = L.icon({
@@ -22,23 +24,6 @@ document.addEventListener("turbolinks:load", function(event) {
 
     mymap.setView([43.6532, -79.3832], 13);
 
-    if(userAddress){
-      console.log(userAddress);
-      axios({
-        url: "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + userAddressText,
-        method: 'get',
-        data: '',
-        dataType: 'json',
-      }).then(function(response){
-        const userAddressLat = response.data[0].lat;
-        const userAddressLong = response.data[0].lon;
-        var corner1 = [userAddressLat,userAddressLong]
-        arrayOfLatLong.push([userAddressLat,userAddressLong])
-        mymap.setView([userAddressLat, userAddressLong], 13)
-        var marker = L.marker([userAddressLat,userAddressLong],
-        {icon: homeIcon})
-        .addTo(mymap);
-      });
 
     if(toolAddress){
       axios({
@@ -62,6 +47,25 @@ document.addEventListener("turbolinks:load", function(event) {
         accessToken: 'pk.eyJ1IjoibmRlbGZvcm5vIiwiYSI6ImNqbzY2MzlyZTBoczUzcW5sc2k3dGFsZ2YifQ.JL97VOzlsaPc4uDrUwlAnw'
       }).addTo(mymap);
     }
+
+    if(userAddress){
+      console.log(userAddress);
+      axios({
+        url: "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=" + userAddressText,
+        method: 'get',
+        data: '',
+        dataType: 'json',
+      }).then(function(response){
+        const userAddressLat = response.data[0].lat;
+        const userAddressLong = response.data[0].lon;
+        var corner1 = [userAddressLat,userAddressLong]
+        arrayOfLatLong.push([userAddressLat,userAddressLong])
+        mymap.setView([userAddressLat, userAddressLong], 13)
+        var marker = L.marker([userAddressLat,userAddressLong],
+        {icon: homeIcon})
+        .addTo(mymap);
+      });
+      
     var testarray = [];
     testarray.push([1,1])
     testarray.push([4,4])
