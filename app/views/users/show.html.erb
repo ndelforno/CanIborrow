@@ -1,0 +1,18 @@
+<h2><%= @user.first_name %></h2>
+<p><%= @user.email %></p>
+<h3>Location:</h3>
+<p><%= @user.address %></p>
+
+<h2>Current Posting:</h2>
+  <% @user.tools.each do |tool|%>
+    <div class="card">
+      <div class="card-body" style="width: 18rem;">
+        <h1 class="card-title"><%= tool.name %> - <%= tool.price  %>$/hour</h1>
+        <p class="card-text"><%= tool.description %></p>
+        <p><%= tool.address %></p>
+        <p>User: <%= tool.user.first_name %></p>
+        <a href=<%= "/tools/#{tool.id}"%> class="btn btn-primary">See posting</a>
+      </div>
+    </div>
+  <% end  %>
+</div>
