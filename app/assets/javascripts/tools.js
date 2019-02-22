@@ -13,8 +13,12 @@ document.addEventListener("turbolinks:load", async (event) => {
 
   if (hasMap) {
     var mymap = L.map('mapid');
-    var toolAddress = document.getElementById("address");
-    var toolAddressText = toolAddress.innerText || '';
+    var toolAddresses = document.querySelectorAll(".toolAddress");
+    var toolAddressesText = []
+    for (var i = 0; i < toolAddresses.length; i++) {
+      toolAddressesText.push(toolAddresses[i].innerText)
+    }
+    console.log(toolAddressesText);
     var userAddress = document.getElementById("user_address");
     var userAddressText = userAddress.innerText || '';
 
@@ -32,19 +36,21 @@ document.addEventListener("turbolinks:load", async (event) => {
     mymap.setView([43.6532, -79.3832], 13);
 
 
-    if (toolAddress) {
-      const {
-        data
-      } = await fetchOpenStreetMap(toolAddressText);
-      const {
-        lat,
-        lon
-      } = data[0];
-      const corner1 = [lat, lon];
+    if (toolAddresses) {
+      for (var i = 0; i < toolAddressesText.length; i++) {
+        const {
+          data
+        } = await fetchOpenStreetMap(toolAddressesText[i]);
+        const {
+          lat,
+          lon
+        } = data[0];
+        const corner1 = [lat, lon];
 
-      arrayOfLatLong.push(corner1)
-      mymap.setView(corner1, 13)
-      L.marker(corner1).addTo(mymap);
+        arrayOfLatLong.push(corner1)
+        mymap.setView(corner1, 13)
+        L.marker(corner1).addTo(mymap);
+      }
     }
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -74,7 +80,6 @@ document.addEventListener("turbolinks:load", async (event) => {
 
     console.log(arrayOfLatLong);
     var bounds = new L.LatLngBounds(arrayOfLatLong);
-    console.log(bounds);
     mymap.fitBounds(bounds);
   }
 });
