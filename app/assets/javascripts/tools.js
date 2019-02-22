@@ -11,6 +11,8 @@ document.addEventListener("turbolinks:load", async (event) => {
   const hasMap = document.getElementById('mapid');
   const arrayOfLatLong = []
   const userAddress = document.getElementById("user_address");
+  const arrayOfTools = document.querySelectorAll(".card-body")
+  console.log(arrayOfTools[0].children[0].innerText);
 
   if (hasMap) {
     var mymap = L.map('mapid');
@@ -40,10 +42,10 @@ document.addEventListener("turbolinks:load", async (event) => {
 
 
     if (toolAddresses) {
-      for (var i = 0; i < toolAddressesText.length; i++) {
+      for (var i = 0; i < arrayOfTools.length; i++) {
         const {
           data
-        } = await fetchOpenStreetMap(toolAddressesText[i]);
+        } = await fetchOpenStreetMap(arrayOfTools[i].children[2].innerText);
         if (data[0]) {
           const {
             lat,
@@ -53,7 +55,7 @@ document.addEventListener("turbolinks:load", async (event) => {
 
           arrayOfLatLong.push(corner1)
           mymap.setView(corner1, 13)
-          L.marker(corner1).addTo(mymap);
+          L.marker(corner1).addTo(mymap).bindPopup(arrayOfTools[i].children[0].innerText).openPopup();
         }
       }
     }
