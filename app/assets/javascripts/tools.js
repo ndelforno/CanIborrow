@@ -41,15 +41,17 @@ document.addEventListener("turbolinks:load", async (event) => {
         const {
           data
         } = await fetchOpenStreetMap(toolAddressesText[i]);
-        const {
-          lat,
-          lon
-        } = data[0];
-        const corner1 = [lat, lon];
+        if (data[0]) {
+          const {
+            lat,
+            lon
+          } = data[0];
+          const corner1 = [lat, lon];
 
-        arrayOfLatLong.push(corner1)
-        mymap.setView(corner1, 13)
-        L.marker(corner1).addTo(mymap);
+          arrayOfLatLong.push(corner1)
+          mymap.setView(corner1, 13)
+          L.marker(corner1).addTo(mymap);
+        }
       }
     }
 
