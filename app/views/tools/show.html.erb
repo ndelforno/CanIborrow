@@ -6,6 +6,7 @@
 <p id="address" class="toolAddress"><%= @tool.address %></p>
 <p><%= @tool.user.first_name %></p>
 <% if current_user == @tool.user %>
+<%= link_to "Edit your tool", edit_tool_path(@tool) %>
 <%= link_to "detele this tool", tool_path, method: :delete%>
 <% end %>
 

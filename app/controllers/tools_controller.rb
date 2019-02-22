@@ -28,6 +28,24 @@ class ToolsController < ApplicationController
 
   end
 
+  def edit
+    @tool = Tool.find(params[:id])
+  end
+
+  def update
+    @tool = Tool.find(params[:id])
+    @tool.name = params[:tool][:name]
+    @tool.description = params[:tool][:description]
+    @tool.price = params[:tool][:price]
+    @tool.address = params[:tool][:address]
+    @tool.user = current_user
+    if @tool.save
+      redirect_to tool_path(@tool)
+    else
+      render :nedit
+    end
+  end
+
   def destroy
     @tool = Tool.find(params[:id])
     @tool.destroy
