@@ -10,6 +10,7 @@ const fetchOpenStreetMap = (query) => {
 document.addEventListener("turbolinks:load", async (event) => {
   const hasMap = document.getElementById('mapid');
   const arrayOfLatLong = []
+  const userAddress = document.getElementById("user_address");
 
   if (hasMap) {
     var mymap = L.map('mapid');
@@ -18,9 +19,11 @@ document.addEventListener("turbolinks:load", async (event) => {
     for (var i = 0; i < toolAddresses.length; i++) {
       toolAddressesText.push(toolAddresses[i].innerText)
     }
-    console.log(toolAddressesText);
-    var userAddress = document.getElementById("user_address");
+
+  if (userAddress) {
     var userAddressText = userAddress.innerText || '';
+  }
+
 
     var homeIcon = L.icon({
       iconUrl: "https://image.flaticon.com/icons/png/128/25/25694.png",
@@ -67,21 +70,23 @@ document.addEventListener("turbolinks:load", async (event) => {
     const {
       data
     } = await fetchOpenStreetMap(userAddressText);
-    const {
-      lat,
-      lon
-    } = data[0];
-    const corner2 = [lat, lon];
+    if (data[0]) {
+      const {
+        lat,
+        lon
+      } = data[0];
+      const corner2 = [lat, lon];
 
-    arrayOfLatLong.push(corner2)
-    mymap.setView(corner2, 13)
-    L.marker(corner2, {
-        icon: homeIcon
-      })
-      .addTo(mymap);
+      arrayOfLatLong.push(corner2)
+      mymap.setView(corner2, 13)
+      L.marker(corner2, {
+          icon: homeIcon
+        })
+        .addTo(mymap);
 
-    console.log(arrayOfLatLong);
-    var bounds = new L.LatLngBounds(arrayOfLatLong);
-    mymap.fitBounds(bounds);
+      console.log(arrayOfLatLong);
+      var bounds = new L.LatLngBounds(arrayOfLatLong);
+      mymap.fitBounds(bounds);
+    }
   }
 });
