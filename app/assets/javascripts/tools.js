@@ -16,11 +16,6 @@ document.addEventListener("turbolinks:load", async (event) => {
 
   if (hasMap) {
     var mymap = L.map('mapid');
-    var toolAddresses = document.querySelectorAll(".toolAddress");
-    var toolAddressesText = []
-    for (var i = 0; i < toolAddresses.length; i++) {
-      toolAddressesText.push(toolAddresses[i].innerText)
-    }
 
   if (userAddress) {
     var userAddressText = userAddress.innerText || '';
@@ -41,7 +36,7 @@ document.addEventListener("turbolinks:load", async (event) => {
     mymap.setView([43.6532, -79.3832], 13);
 
 
-    if (toolAddresses) {
+    if (arrayOfTools) {
       for (var i = 0; i < arrayOfTools.length; i++) {
         const {
           data

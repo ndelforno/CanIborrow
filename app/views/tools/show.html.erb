@@ -1,14 +1,16 @@
 <h1>tool show</h1>
 
-<h1><%= @tool.name  %></h1>
-<p><%= @tool.description %></p>
-<p><%= @tool.price  %>$/hour</p>
-<p id="address" class="toolAddress"><%= @tool.address %></p>
-<p><%= @tool.user.first_name %></p>
-<% if current_user == @tool.user %>
-<%= link_to "Edit your tool", edit_tool_path(@tool) %>
-<%= link_to "detele this tool", tool_path, method: :delete%>
-<% end %>
+<div class="card-body" style="width: 18rem;">
+  <h1 class="card-title"><%= @tool.name  %> - <%= @tool.price  %>$/hour </h1>
+  <p class="card-text"><%= @tool.description %></p>
+  <p class="toolAddress"><%= @tool.address %></p>
+  <p><%= @tool.user.first_name %></p>
+  <% if current_user == @tool.user %>
+  <%= link_to "Edit your tool", edit_tool_path(@tool) %>
+  <%= link_to "detele this tool", tool_path, method: :delete%>
+  <% end %>
+</div>
+
 
 <div id="mapid" >
 
