@@ -15,7 +15,6 @@ require 'faker'
     address: Faker::Address.full_address,
     password: "123456",
     password_confirmation: "123456"
-Us
   )
 end
 

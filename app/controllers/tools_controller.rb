@@ -28,6 +28,12 @@ class ToolsController < ApplicationController
 
   end
 
+  def destroy
+    @tool = Tool.find(params[:id])
+    @tool.destroy
+    redirect_to user_path(current_user)
+  end
+
   def tool_params
     params.require(:tool).permit(:name, :description, :tool_id, :user_id, :search)
   end
