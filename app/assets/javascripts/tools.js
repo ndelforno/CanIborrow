@@ -38,9 +38,10 @@ document.addEventListener("turbolinks:load", async (event) => {
 
     if (arrayOfTools) {
       for (var i = 0; i < arrayOfTools.length; i++) {
+        var searchAddress = arrayOfTools[i].children[2].innerText
         const {
           data
-        } = await fetchOpenStreetMap(arrayOfTools[i].children[2].innerText);
+        } = await fetchOpenStreetMap(searchAddress);
         if (data[0]) {
           const {
             lat,
@@ -50,7 +51,8 @@ document.addEventListener("turbolinks:load", async (event) => {
 
           arrayOfLatLong.push(corner1)
           mymap.setView(corner1, 13)
-          L.marker(corner1).addTo(mymap).bindPopup(arrayOfTools[i].children[0].innerText).openPopup();
+          var toolTitle = arrayOfTools[i].children[0].innerText
+          L.marker(corner1).addTo(mymap).bindPopup(toolTitle).openPopup();
         }
       }
     }
