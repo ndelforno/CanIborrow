@@ -39,7 +39,6 @@ document.addEventListener("turbolinks:load", async (event) => {
     if (arrayOfTools) {
       for (var i = 0; i < arrayOfTools.length; i++) {
         var searchAddress = arrayOfTools[i].children[2].innerText
-        var tool_url = arrayOfTools[i].children[4].href
         const {
           data
         } = await fetchOpenStreetMap(searchAddress);
@@ -53,7 +52,12 @@ document.addEventListener("turbolinks:load", async (event) => {
           arrayOfLatLong.push(corner1)
           mymap.setView(corner1, 13)
           var toolTitle = arrayOfTools[i].children[0].innerText
-          var marker = L.marker(corner1).addTo(mymap).bindPopup(`<b>${toolTitle}</b><br/><a href= ${tool_url}>see</a>` ).openPopup();
+          if (arrayOfTools.length > 1) {
+            var tool_url = arrayOfTools[i].children[4].href
+            var marker = L.marker(corner1).addTo(mymap).bindPopup(`<b>${toolTitle}</b><br/><a href= ${tool_url}>see</a>` ).openPopup();
+          } else{
+            var marker = L.marker(corner1).addTo(mymap).bindPopup(`<b>${toolTitle}</b>`).openPopup();
+          }
         }
       }
     }
