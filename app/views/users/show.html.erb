@@ -17,3 +17,9 @@
     </div>
   <% end  %>
 </div>
+
+<h2>Reservations for your tools:</h2>
+  <% @user.tools each do |tool| %>
+    <% tool.reservation.each do  %>
+      <%= tool.name %>
+  <% end %>
