@@ -26,8 +26,23 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def self.reservation_approved
-    self.status = "approved"
+  def edit
+    @reservation = Reservation.find(params[:id])
   end
-  
+
+  def update
+    @reservation = Reservation.find(params[:id])
+    @reservation.status = params[:status]
+    if @reservation.save
+      redirect_to user_path(current_user)
+    end
+  end
+
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to user_path(current_user)
+  end
+
 end

@@ -30,7 +30,7 @@
         <p>From: <%= res.reservation_time_start %></p>
         <p>To: <%= res.reservation_time_end %></p>
         <p><%= res.user.full_name %></p>
-        <p><%= link_to 'Accept' %> - <%= link_to 'Decline' %></p>
+        <p><%= link_to 'Accept', "/tools/#{tool.id}/reservations/#{res.id}?status=accepted" , method: :put %> - <%= link_to 'Decline' %></p>
       <% end %>
     <% end %>
   </div>
