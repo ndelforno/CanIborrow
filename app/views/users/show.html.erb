@@ -23,8 +23,8 @@
   <% @user.tools.each do |tool| %>
     <% tool.reservations.each do |res|  %>
       <h2><%= res.tool.name %></h2>
-      <p><%= res.reservation_time_start %></p>
-      <p><%= res.reservation_time_end %></p>
+      <p>From: <%= res.reservation_time_start %></p>
+      <p>To: <%= res.reservation_time_end %></p>
       <p><%= res.user.full_name %></p>
     <% end %>
   <% end %>
