@@ -20,8 +20,14 @@ class ReservationsController < ApplicationController
       params[:reservation]["reservation_time_end(4i)"].to_i,
       params[:reservation]["reservation_time_end(5i)"].to_i)
     @reservation.tool_id = @tool.id
+    @reservation.status = "pending"
     if @reservation.save
       redirect_to tool_path(@tool)
     end
   end
+
+  def self.reservation_approved
+    self.status = "approved"
+  end
+  
 end
