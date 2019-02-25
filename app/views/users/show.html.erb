@@ -19,7 +19,13 @@
 </div>
 
 <h2>Reservations for your tools:</h2>
-  <% @user.tools each do |tool| %>
-    <% tool.reservation.each do  %>
-      <%= tool.name %>
+<div>
+  <% @user.tools.each do |tool| %>
+    <% tool.reservations.each do |res|  %>
+      <h2><%= res.tool.name %></h2>
+      <p><%= res.reservation_time_start %></p>
+      <p><%= res.reservation_time_end %></p>
+      <p><%= res.user.full_name %></p>
+    <% end %>
   <% end %>
+</div>
