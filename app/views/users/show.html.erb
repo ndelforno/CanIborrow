@@ -21,40 +21,38 @@
   <% end  %>
 </div>
 
+<div class= "reservations">
 <% if current_user == @user %>
-  <div class= "reservations">
-    <h2>Reservations for your tools:</h2>
-    <% @user.tools.each do |tool| %>
-      <% tool.reservations.each do |res|  %>
+  <h2>Reservations for your tools:</h2>
+      <% @reservations.each do |res|  %>
+      <div class="pending_res">
         <% if res.status == "pending" %>
-        <div class="pending_res">
-          <p><%= res.tool.name %></p>
+          <h3><%= res.tool.name %></h3>
           <p>From: <%= res.reservation_time_start %></p>
           <p>To: <%= res.reservation_time_end %></p>
           <p><%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
-          <p><%= link_to 'Accept', "/tools/#{tool.id}/reservations/#{res.id}?status=accepted" , method: :put %> -
-            <%= link_to 'Decline', "/tools/#{tool.id}/reservations/#{res.id}?status=declined" , method: :put %>
+          <p><%= link_to 'Accept', "/tools/#{res.tool.id}/reservations/#{res.id}?status=accepted" , method: :put %> -
+            <%= link_to 'Decline', "/tools/#{res.tool.id}/reservations/#{res.id}?status=declined" , method: :put %>
           </p>
-        </div>
+      </div>
+      <div class="accepted_res">
         <% elsif res.status == "accepted" %>
-        <div class="accepted_res">
-          <p><%= res.tool.name %></p>
+          <h3><%= res.tool.name %></h3>
           <p>From: <%= res.reservation_time_start %></p>
           <p>To: <%= res.reservation_time_end %></p>
           <p><%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
-        </div>
+      </div>
+      <div class="declined_res">
         <% elsif res.status == "declined" %>
-        <div class="declined_res">
-          <p><%= res.tool.name %></p>
+          <h3><%= res.tool.name %></h3>
           <p>From: <%= res.reservation_time_start %></p>
           <p>To: <%= res.reservation_time_end %></p>
           <p><%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
-        </div>
+      </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
-<% end  %>

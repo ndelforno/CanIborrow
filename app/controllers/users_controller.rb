@@ -40,6 +40,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tools = @user.tools
+    @reservations = []
+    @tools.each do |tool|
+      tool.reservations.each do |res|
+        @reservations << res
+      end
+    end
   end
 
 end
