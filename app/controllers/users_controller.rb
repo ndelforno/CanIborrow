@@ -34,11 +34,12 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       redirect_to user_path(@user)
-    end 
+    end
   end
 
   def show
     @user = User.find(params[:id])
+    @tools = @user.tools
   end
 
 end
