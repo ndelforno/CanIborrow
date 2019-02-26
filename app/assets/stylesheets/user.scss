@@ -1,3 +1,27 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#user_info{
+  padding-top: 8px;
+}
+
+
+#stickbar{
+  overflow: hidden;
+  background-color: #333;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}

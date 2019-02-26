@@ -25,53 +25,58 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
   </head>
-  <header>
-    <h1 class="title">Can I Borrow ?</h1>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to 'Home', tools_path, class:"nav-link"  %>
-        </li>
-        <% if current_user %>
-        <li class="nav-item">
-          Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %> Your location: <span id="user_address">  <%= current_user.address %></span>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Log out', session_path("current"), :method => :delete, class:"nav-link"  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Add tool', new_tool_path, class:"nav-link" %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to 'Log In', new_session_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
-        </li>
-        <% end %>
-      </ul>
-      <div class="search_bar">
-        <%= form_tag(tools_path, method: :get, class: "form-inline") do %>
-        <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "search" %>
-        <%= submit_tag "Search", class: "btn btn-outline-primary my-2 my-sm-0" %>
-        <% end %>
-      </div>
-    </nav>
 
-
-
-  </header>
   <body>
+    <header>
+        <h1 class="title">Can I Borrow ?</h1>
+        <div id="stickbar">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <div class="navbar-nav">
+              <li class="nav-item">
+                <%= link_to 'Home', tools_path, class:"nav-link"  %>
+              </li>
+              <% if current_user %>
+              <li class="nav-item" id="user_info">
+                Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %> Your location: <span id="user_address">  <%= current_user.address %></span>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Log out', session_path("current"), :method => :delete, class:"nav-link"  %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Add tool', new_tool_path, class:"nav-link" %>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <%= link_to 'Log In', new_session_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
+              </li>
+              <% end %>
+            </div>
+            <div class="search_bar">
+              <%= form_tag(tools_path, method: :get, class: "form-inline") do %>
+              <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "search" %>
+              <%= submit_tag "Search", class: "btn btn-outline-primary my-2 my-sm-0" %>
+              <% end %>
+            </div>
+          </nav>
+        </div>
+    </header>
+
+    <main class="content">
     <%= yield %>
 
+
+
+    </main>
+    <footer>
+
+    </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
-  <footer>
 
-  </footer>
 </html>

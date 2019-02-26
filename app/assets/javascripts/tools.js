@@ -12,7 +12,6 @@ document.addEventListener("turbolinks:load", async (event) => {
   const arrayOfLatLong = []
   const userAddress = document.getElementById("user_address");
   const arrayOfTools = document.querySelectorAll(".card-body")
-  console.log(arrayOfTools);
 
   if (hasMap) {
     var mymap = L.map('mapid');
