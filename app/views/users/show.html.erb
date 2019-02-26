@@ -21,12 +21,12 @@
   <% end  %>
 </div>
 
-<div class= "reservations">
+
 <% if current_user == @user %>
   <h2>Reservations for your tools:</h2>
-      <% @reservations.each do |res|  %>
-      <div class="pending_res">
-        <% if res.status == "pending" %>
+  <div class= "reservations">
+    <div class="pending_res">
+      <% @reservations_pending.each do |res|  %>
           <h3><%= res.tool.name %></h3>
           <p>From: <%= res.reservation_time_start %></p>
           <p>To: <%= res.reservation_time_end %></p>
@@ -35,24 +35,25 @@
           <p><%= link_to 'Accept', "/tools/#{res.tool.id}/reservations/#{res.id}?status=accepted" , method: :put %> -
             <%= link_to 'Decline', "/tools/#{res.tool.id}/reservations/#{res.id}?status=declined" , method: :put %>
           </p>
+      <% end %>
       </div>
       <div class="accepted_res">
-        <% elsif res.status == "accepted" %>
+      <% @reservations_accepted.each do |res| %>
           <h3><%= res.tool.name %></h3>
           <p>From: <%= res.reservation_time_start %></p>
           <p>To: <%= res.reservation_time_end %></p>
           <p><%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
+      <% end %>
       </div>
       <div class="declined_res">
-        <% elsif res.status == "declined" %>
+      <% @reservations_declined.each do |res| %>
           <h3><%= res.tool.name %></h3>
           <p>From: <%= res.reservation_time_start %></p>
           <p>To: <%= res.reservation_time_end %></p>
           <p><%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
-      </div>
-        <% end %>
       <% end %>
-    <% end %>
+      </div>
   </div>
+<% end %>

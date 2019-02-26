@@ -40,10 +40,18 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tools = @user.tools
-    @reservations = []
+    @reservations_pending = []
+    @reservations_accepted = []
+    @reservations_declined = []
     @tools.each do |tool|
       tool.reservations.each do |res|
-        @reservations << res
+        if res.status == "pending"
+          @reservations_pending << res
+        elsif res.status == "accepted"
+          @reservations_accepted << res
+        else
+          @reservations_declined << res
+        end
       end
     end
   end
