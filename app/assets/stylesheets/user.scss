@@ -1,6 +1,10 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  font-family: 'Rubik', sans-serif;
+}
+
 #user_info{
   padding-top: 8px;
 }
@@ -9,6 +13,10 @@
 #stickbar{
   overflow: hidden;
   background-color: #333;
+}
+
+.navbar{
+  font-size: 16px;
 }
 
 .content {
@@ -24,4 +32,28 @@
 
 .sticky + .content {
   padding-top: 60px;
+}
+
+.header_title{
+  height: 400px;
+  background-image: url("tools.jpeg");
+  background-size: 100%;
+}
+
+h1{
+  text-align: center;
+}
+.navbar{
+  padding: 10px;
+  height: 81px;
+}
+
+#search {
+  width: 500px;
+  height: 48px;
+
+}
+
+#searchbtn {
+  height: 48px;
 }
