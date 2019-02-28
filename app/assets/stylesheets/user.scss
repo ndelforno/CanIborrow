@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body{
   font-family: 'Rubik', sans-serif;
+  background-image: url("tools.jpeg");
+  background-size: 100%;
 }
 
 #user_info{
@@ -15,9 +17,11 @@ body{
   background-color: #333;
 }
 
-.navbar{
-  font-size: 16px;
+.row{
+  margin: 30px;
+  margin-top: 100px;
 }
+
 
 .content {
   padding: 16px;
@@ -35,17 +39,17 @@ body{
 }
 
 .header_title{
-  height: 400px;
-  background-image: url("tools.jpeg");
   background-size: 100%;
 }
 
-h1{
-  text-align: center;
+.card{
+  margin: 5px;
+  background-color: rgba(255,255,255, 0.9);
 }
 .navbar{
+  font-size: 16px;
   padding: 10px;
-  height: 81px;
+  height: 90px;
 }
 
 #search {

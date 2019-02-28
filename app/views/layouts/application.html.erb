@@ -30,14 +30,13 @@
 
   <body>
     <header>
-      <div class="header_title">
-        <h1 class="title">Can I Borrow ?</h1>
-      </div>
         <div id="stickbar">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-sm navbar-light bg-light">
            <div class="navbar-nav">
-              <li class="nav-item">
-                <%= link_to 'Home', tools_path, class:"nav-link"  %>
+              <li>
+                <a href="/" class="navbar-brand">
+                  <%= image_tag 'caniborrowlogo.png', :width => "150", :length =>"100"  %>
+                </a>
               </li>
               <div class="search_bar">
                 <%= form_tag(tools_path, method: :get, class: "form-inline") do %>
