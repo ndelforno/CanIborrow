@@ -33,11 +33,9 @@
         <div id="stickbar">
           <nav class="navbar navbar-expand-sm navbar-light bg-light">
            <div class="navbar-nav">
-              <li>
                 <a href="/" class="navbar-brand">
                   <%= image_tag 'caniborrowlogo.png', :width => "150", :length =>"100"  %>
                 </a>
-              </li>
               <div class="search_bar">
                 <%= form_tag(tools_path, method: :get, class: "form-inline") do %>
                 <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "search" %>
@@ -45,23 +43,25 @@
                 <% end %>
               </div>
               <% if current_user %>
-              <li class="nav-item">
-                <%= link_to 'Add tool', new_tool_path, class:"nav-link" %>
-              </li>
-              <li class="nav-item" id="user_info">
-                Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %> Your location: <span id="user_address">  <%= current_user.address %></span>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Log out', session_path("current"), :method => :delete, class:"nav-link"  %>
-              </li>
-              <% else %>
-              <li class="nav-item">
-                <%= link_to 'Log In', new_session_path, class:"nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
-              </li>
-              <% end %>
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <%= link_to 'Lend your Stuff', new_tool_path, class:"btn btn-outline-danger btn-lg " %>
+                </li>
+                <li class="nav-item" id="user_info">
+                  Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %>  <span id="user_address"> Your location: <%= current_user.address %></span>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Log out', session_path("current"), :method => :delete, class:"nav-link justify-content-end"  %>
+                </li>
+                <% else %>
+                <li class="nav-item">
+                  <%= link_to 'Log In', new_session_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
+                </li>
+                <% end %>
+              </ul>
             </div>
           </nav>
         </div>

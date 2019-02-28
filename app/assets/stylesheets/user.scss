@@ -11,6 +11,10 @@ body{
   padding-top: 8px;
 }
 
+#user_address{
+  visibility: hidden;
+}
+
 
 #stickbar{
   overflow: hidden;
@@ -52,10 +56,25 @@ body{
   height: 90px;
 }
 
+.nav-item{
+  margin: 25px;
+}
+
+.nav-link{
+  color: #484848;
+}
+
+.right_menu{
+  width: 600px;
+}
+
+.search_bar{
+  margin-top: 20px;
+}
+
 #search {
   width: 500px;
   height: 48px;
-
 }
 
 #searchbtn {
