@@ -6,7 +6,7 @@ class Tool < ApplicationRecord
     if search
        @tools = Tool.where("name like ?", "%#{search}%")
     else
-      Tool.all
+      Tool.last(14)
     end
   end
 

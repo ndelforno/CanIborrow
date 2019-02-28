@@ -30,7 +30,7 @@
 
   <body>
     <header>
-        <div id="stickbar">
+        <div id="stickbar" class ="sticky">
           <nav class="navbar navbar-expand-sm navbar-light bg-light">
            <div class="navbar-nav">
                 <a href="/" class="navbar-brand">
@@ -44,23 +44,23 @@
               </div>
               <% if current_user %>
               <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <%= link_to 'Lend your Stuff', new_tool_path, class:"btn btn-outline-danger btn-lg " %>
-                </li>
-                <li class="nav-item" id="user_info">
-                  Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %>  <span id="user_address"> Your location: <%= current_user.address %></span>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Log out', session_path("current"), :method => :delete, class:"nav-link justify-content-end"  %>
-                </li>
-                <% else %>
-                <li class="nav-item">
-                  <%= link_to 'Log In', new_session_path, class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
-                </li>
-                <% end %>
+              <li class="nav-item">
+                <%= link_to 'Lend your Stuff', new_tool_path, class:"btn btn-outline-danger btn-lg " %>
+              </li>
+              <li class="nav-item" id="user_info">
+                Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %> Your Location:  <p id="user_address"><%= current_user.address %></p>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Log out', session_path("current"), :method => :delete, class:"nav-link justify-content-end"  %>
+              </li>
+              <% else %>
+              <li class="nav-item">
+                <%= link_to 'Log In', new_session_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
+              </li>
+              <% end %>
               </ul>
             </div>
           </nav>

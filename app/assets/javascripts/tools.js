@@ -70,6 +70,7 @@ document.addEventListener("turbolinks:load", async (event) => {
   }
 
   if (userAddress) {
+    console.log(userAddress);
     const {
       data
     } = await fetchOpenStreetMap(userAddressText);
