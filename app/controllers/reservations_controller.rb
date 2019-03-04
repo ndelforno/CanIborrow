@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     @reservation.tool_id = @tool.id
     @reservation.status = "pending"
     if @reservation.save
-      redirect_to tool_path(@tool)
+      redirect_to user_path(current_user)
     end
   end
 
