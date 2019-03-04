@@ -1,3 +1,9 @@
+<% if reservation.errors.any? %>
+  <% reservation.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+
 <%= form_for([tool, reservation]) do |f| %>
 <div class="reservation_form">
   <div class="form-group">

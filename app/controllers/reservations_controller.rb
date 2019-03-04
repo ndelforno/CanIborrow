@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
     @reservation.tool_id = @tool.id
     @reservation.status = "pending"
     if @reservation.save
+      flash[:notice] = "Material booked !"
       redirect_to user_path(current_user)
     end
   end

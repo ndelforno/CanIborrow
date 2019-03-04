@@ -7,10 +7,10 @@ class Reservation < ApplicationRecord
   validate :end_date_after_start_date
 
   def end_date_after_start_date
-     return if reservation_time_start.blank? || reservation_time_end.blank?
-
-     if reservation_time_end < reservation_time_end
-       errors.add(:end_date, "must be after the start date")
+    return if reservation_time_start.blank? || reservation_time_end.blank?
+    
+     if reservation_time_end < reservation_time_start
+       errors.add(:reservation_time_end, "must be after the start date")
      end
   end
 
