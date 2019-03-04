@@ -8,3 +8,14 @@
   height: 520px;
   z-index:0;
 }
+
+.create_tool{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.tool_form{
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  padding: 20px;
+}
