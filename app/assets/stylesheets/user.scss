@@ -64,24 +64,32 @@ body{
 }
 
 .nav-item{
-  margin: 25px;
+  margin: 20px;
+  margin-left: 50px;
 }
 
 .nav-link{
   color: #484848;
 }
 
-.right_menu{
-  width: 600px;
-}
+// .right_menu{
+//   width: 600px;
+// }
 
 .search_bar{
   margin-top: 20px;
 }
 
+
 #search {
   width: 500px;
   height: 48px;
+}
+
+@media only screen and (max-width: 1312px){
+  #search{
+    width : 200px;
+  }
 }
 
 #searchbtn {
