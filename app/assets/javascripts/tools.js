@@ -36,6 +36,7 @@ document.addEventListener("turbolinks:load", async (event) => {
 
 
     if (arrayOfTools) {
+      console.log(arrayOfTools);
       for (var i = 0; i < arrayOfTools.length; i++) {
         var searchAddress = arrayOfTools[i].querySelector('.toolAddress').innerText
         const {
@@ -69,8 +70,7 @@ document.addEventListener("turbolinks:load", async (event) => {
     }).addTo(mymap);
   }
 
-  if (userAddress) {
-    console.log(userAddress);
+  if (userAddress) {;
     const {
       data
     } = await fetchOpenStreetMap(userAddressText);
