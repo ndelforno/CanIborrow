@@ -11,10 +11,10 @@
   <% @user.tools.each do |tool|%>
     <div class="card">
       <div class="card-body d-flex flex-column" style="width: 18rem;">
-        <h1 class="card-title"><%= tool.name %> - <%= tool.price  %>$/hour</h1>
+        <h2 class="card-title"><%= tool.name %></h2>
+        <h4><%= tool.price  %>$/day</h4>
         <p class="card-text"><%= tool.description %></p>
         <p><%= tool.address %></p>
-        <p>User: <%= tool.user.first_name %></p>
         <a href=<%= "/tools/#{tool.id}"%> class="btn btn-primary btn-block mt-auto">See posting</a>
       </div>
     </div>
@@ -29,9 +29,9 @@
       <h3>Pending:</h3>
       <% @reservations_pending.each do |res|  %>
           <h4><%= res.tool.name %></h4>
-          <p>From: <%= res.reservation_time_start %></p>
-          <p>To: <%= res.reservation_time_end %></p>
-          <p><%= res.user.full_name %></p>
+          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %></p>
+          <p>To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
+          <p>Requestor: <%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
           <p><%= link_to 'Accept', "/tools/#{res.tool.id}/reservations/#{res.id}?status=accepted" , method: :put, class: "btn btn-success" %>
             <%= link_to 'Decline', "/tools/#{res.tool.id}/reservations/#{res.id}?status=declined" , method: :put, class: "btn btn-danger" %>
@@ -42,9 +42,9 @@
         <h3>Approved:</h3>
       <% @reservations_accepted.each do |res| %>
           <h4><%= res.tool.name %></h4>
-          <p>From: <%= res.reservation_time_start %></p>
-          <p>To: <%= res.reservation_time_end %></p>
-          <p><%= res.user.full_name %></p>
+          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y")%></p>
+          <p>To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
+          <p>Requestor:<%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
       <% end %>
       </div>
@@ -52,9 +52,9 @@
         <h3>Declined:</h3>
       <% @reservations_declined.each do |res| %>
           <h4><%= res.tool.name %></h4>
-          <p>From: <%= res.reservation_time_start %></p>
-          <p>To: <%= res.reservation_time_end %></p>
-          <p><%= res.user.full_name %></p>
+          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %></p>
+          <p>To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
+          <p>Requestor:<%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
       <% end %>
       </div>
