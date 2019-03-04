@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-body d-flex flex-column" style="width: 18rem;">
           <h2 class="card-title"><%= tool.name %></h2>
-          <h4><%= tool.price  %>$/day</h4>
+          <h4><span id="price"><%= tool.price  %>$ /Day</span></h4>
           <p class="card-text"><%= tool.description %></p>
           <p class="toolAddress"><%= tool.address %></p>
           <p>User: <%=link_to( "#{tool.user.full_name}", user_path(tool.user) )%></p>

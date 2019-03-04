@@ -7,10 +7,11 @@
 <%= form_for([tool, reservation]) do |f| %>
 <div class="reservation_form">
   <div class="form-group">
-    <label for="reservation_time_start">From:</label>
+    <label for="reservation_time_start"><h2>From:</h2></label>
     <%= f.date_field :reservation_time_start, class: 'form-control' %>
+    <br>
   <div class="form-group">
-    <label for="reservation_time_end">to:</label>
+    <label for="reservation_time_end"><h2>to:</h2></label>
      <%= f.date_field :reservation_time_end, class: 'form-control' %>
   </div>
   <div class="form-group">

@@ -6,8 +6,7 @@
 <% end %>
 
 <%= form_tag sessions_path, :method => :post do %>
-
-
+<div class="user_login">
   <div class="form-group">
     <label for="email">Email address</label>
     <%= text_field_tag(:email,"",:required => true, class: 'form-control', placeholder:"name@example.com") %>
@@ -20,4 +19,5 @@
   <div class="form-group">
     <%= submit_tag("Login",class:"btn btn-primary") %>
   </div>
+</div>
 <% end %>
