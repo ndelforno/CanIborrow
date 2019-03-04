@@ -1,11 +1,10 @@
 <%= form_for([tool, reservation]) do |f| %>
 <div class="form-group">
-  <label for="reservation_time_start"><h2>From</h2></label>
-  <%= f.datetime_select :reservation_time_start, {anpm: true, hour_step: 1, minute_step: 30, prompt: true}, {class:'form-control', required: true}%>
-</div>
+  <label for="reservation_time_start">From</label>
+  <%= f.date_field :reservation_time_start %>
 <div class="form-group">
-  <label for="reservation_time_end"><h2>To</h2></label>
-  <%= f.datetime_select :reservation_time_end, {anpm: true, hour_step: 1, minute_step: 30, prompt: true}, {class:'form-control', required: true}%>
+  <label for="reservation_time_end">to</label>
+   <%= f.date_field :reservation_time_end %>
 </div>
 <div class="form-group">
   <%= f.submit "Book this tool", class:"btn btn-primary" %>
