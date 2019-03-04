@@ -1,25 +1,3 @@
 // Place all the styles related to the Reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.reservations{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.pending_res{
-  grid-column: 1fr;
-}
-
-.accepted_res{
-  grid-column: 1fr;
-}
-
-.declined_res{
-  grid-column: 1fr;
-}
-
-.reservation_form{
-  border: 1px solid black;
-  padding: 8px;
-}

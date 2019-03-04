@@ -1,16 +1,18 @@
 <div class="show">
     <div class="column1">
-      <div class="card-body " style="width: 18rem;">
+      <div class="show_tool">
         <h1 class="card-title"><%= @tool.name  %> </h1>
-        <p><%= @tool.price  %>$/day </p>
-        <h4>Description:</h4>
+        <h2>Price : <%= @tool.price  %>$ /day </h2>
+        <h4 id="description">Description:</h4>
         <p class="card-text"><%= @tool.description %></p>
-        <h4>Address:</h4>
+        <h4 id="address">Material's Address:</h4>
         <p class="toolAddress"><%= @tool.address %></p>
-        <p>User: <%=link_to( "#{@tool.user.full_name}", user_path(@tool.user) )%></p>
+        <p id="user_info">User: <%=link_to( "#{@tool.user.full_name}", user_path(@tool.user) )%></p>
         <% if current_user == @tool.user %>
-        <%= link_to "Edit your tool", edit_tool_path(@tool) %>
-        <%= link_to "detele this tool", tool_path, method: :delete%>
+          <div class="user_option">
+          <%= link_to "Edit your Material", edit_tool_path(@tool), class:"btn btn-warning btn-md", id: "edit_button" %>
+          <%= link_to "Remove this Material", tool_path, method: :delete, class:"btn btn-warning btn-md", id: "delete_button"%>
+          </div>
         <% end %>
       </div>
     </div>

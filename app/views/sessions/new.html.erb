@@ -1,6 +1,12 @@
 <h1>Login</h1>
+<% @user.errors.each do |attr, msg| %>
+  <li>
+    <%= @user.errors.full_messages_for(attr).first if @user.errors[attr].first == msg %>
+  </li>
+<% end %>
 
 <%= form_tag sessions_path, :method => :post do %>
+
 
   <div class="form-group">
     <label for="email">Email address</label>

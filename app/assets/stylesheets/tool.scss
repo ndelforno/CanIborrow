@@ -19,3 +19,56 @@
   border: 1px solid lightgrey;
   padding: 20px;
 }
+
+.column1{
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  padding: 20px;
+}
+
+.reservations{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pending_res{
+  grid-column: 1fr;
+}
+
+.accepted_res{
+  grid-column: 1fr;
+}
+
+.declined_res{
+  grid-column: 1fr;
+}
+
+.reservation_form{
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  padding: 20px;
+}
+
+.user_option{
+  margin-top: 50px;
+}
+
+.show_tool{
+  padding: 20px;
+}
+
+#delete_button{
+  margin-right: 10px;
+}
+
+#description{
+  padding-top: 30px;
+}
+
+#address{
+  padding-top: 30px;
+}
+
+#user_info{
+  padding-top: 30px;
+}
