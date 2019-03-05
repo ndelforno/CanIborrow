@@ -10,14 +10,14 @@ const fetchOpenStreetMap = (query) => {
 document.addEventListener("turbolinks:load", async (event) => {
   const hasMap = document.getElementById('mapid');
   const arrayOfLatLong = []
-  const userAddress = document.getElementById("user_address");
+  const userAddress = document.getElementById("user_info");
   const arrayOfTools = document.querySelectorAll(".card-body")
 
   if (hasMap) {
     var mymap = L.map('mapid');
 
   if (userAddress) {
-    var userAddressText = userAddress.innerText || '';
+    var userAddressText = userAddress.dataset.attribute || '';
   }
 
 
