@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.status = params[:status]
     if @reservation.save
-      redirect_to user_path(current_user)
+      redirect_to "/users/#{current_user.id}/reservations"
     end
   end
 

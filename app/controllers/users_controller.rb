@@ -40,6 +40,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tools = @user.tools
+  end
+
+  def user_reservations_show
+    @user = User.find(params[:id])
+    @tools = @user.tools
     @reservations_pending = []
     @reservations_accepted = []
     @reservations_declined = []

@@ -46,18 +46,18 @@
               <div class="nav-item ">
                 <%= link_to 'List your Material', new_tool_path, class:"btn btn-warning btn-lg inline " %>
               </div>
-              <li class="nav-item dropdown">
-                <p class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <ul class="nav-item dropdown ml-auto">
+                <li class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <%= current_user.full_name %>
-                </p>
+                </li>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to("Your profile", user_path(current_user), class: "dropdown-item", id: "user_info", :"data-attribute" => "#{current_user.address}") %>
-                  <a class="dropdown-item" href="#">Your Reservations</a>
+                  <a class="dropdown-item" href= <%= "/users/#{current_user.id}/reservations" %>>Your Reservations</a>
                   <a class="dropdown-item" href="#">Your Materials</a>
-                  <div class="dropdown-divider"></div>
+                  <li class="dropdown-divider"></li>
                   <%= link_to 'Log out', session_path("current"), :method => :delete, class:"dropdown-item"  %>
                 </div>
-              </li>
+              </ul>
               <% else %>
               <div class="nav-item">
                 <%= link_to 'Log In', new_session_path, class:"nav-link" %>

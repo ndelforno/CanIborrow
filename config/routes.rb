@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :reservations
   end
   resources :sessions
+
+  get 'users/:id/reservations', :to => 'users#user_reservations_show'
 end
