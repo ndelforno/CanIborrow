@@ -3,7 +3,7 @@
 <% @reservations_done.each do |res| %>
   <div class="reservation_done">
     <h4><%= res.tool.name %></h4>
-    <p>Maetrial's owner: <%= link_to "#{res.tool.user.full_name}", "/users/#{res.tool.user.id}" %></p>
+    <p>Material's owner: <%= link_to "#{res.tool.user.full_name}", "/users/#{res.tool.user.id}" %></p>
     <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
     To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %>
     </p>
