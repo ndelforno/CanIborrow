@@ -7,12 +7,29 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+addresses = ["300 queen street west, toronto",
+  "900 davenport road, Toronto",
+  "21 Vaughan road, Toronto",
+  "500 dufferin street, Toronto",
+  "400 Yonge Street, Toronto",
+  "200 bathurst street, Toronto",
+  "299 roehampton street, toronto",
+  "1200 yonge street, Toronto",
+  "800 Bloor street west, Toronto",
+  "100 Bloor street west, Toronto",
+  "700 king street west, Toronto",
+  "351 King street east, Toronto",
+  "200 King street east, Toronto",
+  "200 King street west, Toronto",
+  "300 yonge street, Toronto",
+]
+
 10.times do
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.free_email,
-    address: Faker::Address.full_address,
+    address: addresses.sample,
     password: "123456",
     password_confirmation: "123456"
   )
@@ -24,7 +41,7 @@ end
     user: User.all.sample,
     description: Faker::Appliance.brand,
     price: 5,
-    address: Faker::Address.full_address
+    address: addresses.sample,
   )
 end
 

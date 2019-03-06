@@ -52,8 +52,8 @@
                 </li>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to("Your profile", user_path(current_user), class: "dropdown-item", id: "user_info", :"data-attribute" => "#{current_user.address}") %>
-                  <a class="dropdown-item" href= <%= "/users/#{current_user.id}/reservations" %>>Your Reservations</a>
-                  <a class="dropdown-item" href="#">Your Materials</a>
+                  <a class="dropdown-item" href= <%= "/users/#{current_user.id}/reservations_received" %>>Reservations Received</a>
+                  <a class="dropdown-item" href=<%= "/users/#{current_user.id}/reservations_done" %>>Reservations Booked</a>
                   <li class="dropdown-divider"></li>
                   <%= link_to 'Log out', session_path("current"), :method => :delete, class:"dropdown-item"  %>
                 </div>

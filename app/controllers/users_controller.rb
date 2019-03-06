@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @tools = @user.tools
   end
 
-  def user_reservations_show
+  def reservations_received
     @user = User.find(params[:id])
     @tools = @user.tools
     @reservations_pending = []
@@ -59,6 +59,11 @@ class UsersController < ApplicationController
         end
       end
     end
+  end
+
+  def reservations_done
+    @user = User.find(params[:id])
+    @reservations_done = @user.reservations
   end
 
 end
