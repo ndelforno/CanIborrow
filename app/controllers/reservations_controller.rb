@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     @reservation.status = "pending"
     if @reservation.save
       flash[:notice] = "Material booked !"
-      redirect_to user_path(current_user)
+      redirect_to "/users/#{current_user.id}/reservations_done"
     end
   end
 
@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.status = params[:status]
     if @reservation.save
-      redirect_to "/users/#{current_user.id}/reservations"
+      redirect_to "/users/#{current_user.id}/reservations_received"
     end
   end
 
