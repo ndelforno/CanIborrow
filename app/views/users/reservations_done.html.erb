@@ -1,10 +1,15 @@
-<h1>reservations Booked:</h1>
+<div class="reservations_done">
+  <h1>reservations Booked:</h1>
 <% @reservations_done.each do |res| %>
-  <%= res.tool.name %>
-  From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
-  To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %>
-  Status: <%= res.status %>
-  <p>Days: <%= res.numbers_of_days %></p>
-  <p>Price <%= res.tool.price %> $/day</p>
-  <p> Total Price: <%= res.numbers_of_days * res.tool.price %> CAD$ </p>
+  <div class="reservation_done">
+    <h4><%= res.tool.name %></h4>
+    From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
+    To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %>
+    Status: <%= res.status %>
+    <p>Days: <%= res.numbers_of_days %></p>
+    <p>Price <%= res.tool.price %> $/day</p>
+    <p> Total Price: <%= res.numbers_of_days * res.tool.price %> CAD$ </p>
+  </div>
+  <hr>
 <% end %>
+</div>
