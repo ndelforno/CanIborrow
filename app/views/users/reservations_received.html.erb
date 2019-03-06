@@ -5,9 +5,12 @@
       <h3>Pending:</h3>
       <% @reservations_pending.each do |res|  %>
           <h4><%= res.tool.name %></h4>
-          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %></p>
-          <p>To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
+          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
+              To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
           <p>Requestor: <%= res.user.full_name %></p>
+          <p>Days: <%= res.numbers_of_days %></p>
+          <p>Price <%= res.tool.price %> $/day</p>
+          <p> Total Price: <%= res.numbers_of_days * res.tool.price %> CAD$ </p>
           <p>Status: <%= res.status %></p>
           <p><%= link_to 'Accept', "/tools/#{res.tool.id}/reservations/#{res.id}?status=accepted" , method: :put, class: "btn btn-success" %>
             <%= link_to 'Decline', "/tools/#{res.tool.id}/reservations/#{res.id}?status=declined" , method: :put, class: "btn btn-danger" %>
@@ -18,9 +21,12 @@
         <h3>Approved:</h3>
       <% @reservations_accepted.each do |res| %>
           <h4><%= res.tool.name %></h4>
-          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y")%></p>
-          <p>To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
+          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y")%>
+            To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
           <p>Requestor:<%= res.user.full_name %></p>
+          <p>Days: <%= res.numbers_of_days %></p>
+          <p>Price <%= res.tool.price %> $/day</p>
+          <p> Total Price: <%= res.numbers_of_days * res.tool.price %> CAD$ </p>
           <p>Status: <%= res.status %></p>
       <% end %>
       </div>
@@ -28,8 +34,8 @@
         <h3>Declined:</h3>
       <% @reservations_declined.each do |res| %>
           <h4><%= res.tool.name %></h4>
-          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %></p>
-          <p>To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
+          <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
+              To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %></p>
           <p>Requestor:<%= res.user.full_name %></p>
           <p>Status: <%= res.status %></p>
       <% end %>

@@ -23,7 +23,17 @@ body{
   background-color: #333;
 }
 
+#navbarDropdown{
+  border-radius: 50%;
+  border: 1px solid lightgrey;
+  padding: 15px;
+}
 
+#navbarDropdown:hover {
+  background-color: lightgrey;
+  color: white;
+  cursor: pointer;
+}
 .tool_show{
   display: grid;
   grid-template-columns: 500px 500px 500px;
