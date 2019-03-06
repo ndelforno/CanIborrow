@@ -4,5 +4,6 @@
   From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
   To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %>
   Status: <%= res.status %>
-  <p> Total Price: </p>
+  <p>Days: <%= res.numbers_of_days %></p>
+  <p> Total Price: <%= res.numbers_of_days * res.tool.price %> $ </p>
 <% end %>
