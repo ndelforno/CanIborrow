@@ -36,7 +36,6 @@ document.addEventListener("turbolinks:load", async (event) => {
 
 
     if (arrayOfTools) {
-      console.log(arrayOfTools);
       for (var i = 0; i < arrayOfTools.length; i++) {
         var searchAddress = arrayOfTools[i].querySelector('.toolAddress').innerText
         const {
@@ -68,28 +67,29 @@ document.addEventListener("turbolinks:load", async (event) => {
       id: 'mapbox.streets',
       accessToken: 'pk.eyJ1IjoibmRlbGZvcm5vIiwiYSI6ImNqbzY2MzlyZTBoczUzcW5sc2k3dGFsZ2YifQ.JL97VOzlsaPc4uDrUwlAnw'
     }).addTo(mymap);
-  }
 
-  if (userAddress) {;
-    const {
-      data
-    } = await fetchOpenStreetMap(userAddressText);
-    if (data[0]) {
+
+    if (userAddress) {;
       const {
-        lat,
-        lon
-      } = data[0];
-      const corner2 = [lat, lon];
+        data
+      } = await fetchOpenStreetMap(userAddressText);
+      if (data[0]) {
+        const {
+          lat,
+          lon
+        } = data[0];
+        const corner2 = [lat, lon];
 
-      arrayOfLatLong.push(corner2)
-      mymap.setView(corner2, 13)
-      L.marker(corner2, {
-          icon: homeIcon
-        })
-        .addTo(mymap);
+        arrayOfLatLong.push(corner2)
+        mymap.setView(corner2, 13)
+        L.marker(corner2, {
+            icon: homeIcon
+          })
+          .addTo(mymap);
 
-      var bounds = new L.LatLngBounds(arrayOfLatLong);
-      mymap.fitBounds(bounds);
+        var bounds = new L.LatLngBounds(arrayOfLatLong);
+        mymap.fitBounds(bounds);
+      }
     }
   }
 });
