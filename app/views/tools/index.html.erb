@@ -1,4 +1,6 @@
-<p>* Login or signup to find tools around your location</p>
+<% if current_user == nil  %>
+<p>* Login or signup to find Materials around your location</p>
+<% end %>
 <div id="mapid">
 </div>
 <div class="row">
