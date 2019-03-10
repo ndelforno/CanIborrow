@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.new
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
@@ -17,8 +16,8 @@ class SessionsController < ApplicationController
       end
 
      else
-       flash[:notice] = "Login Failed"
-       redirect_to request.referer, info: "Incorrect Username/Password  !"
+       flash[:alert] = "Incorrect Username/Password !"
+       render :new
      end
    end
 
