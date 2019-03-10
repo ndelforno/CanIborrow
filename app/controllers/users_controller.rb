@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to request.referer, notice: "Logged in as #{@user.email}!"
     else
-      redirect_to request.referer, notice: "signup failed !"
+      render :new
     end
   end
 
@@ -34,6 +34,8 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.save
       redirect_to user_path(@user)
+    else
+      render :edit
     end
   end
 

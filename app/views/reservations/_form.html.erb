@@ -8,11 +8,11 @@
 <div class="reservation_form">
   <div class="form-group">
     <label for="reservation_time_start"><h2>From:</h2></label>
-    <%= f.date_field :reservation_time_start, class: 'form-control' %>
+    <%= f.date_field :reservation_time_start, class: 'form-control', min: Time.now %>
     <br>
   <div class="form-group">
     <label for="reservation_time_end"><h2>to:</h2></label>
-     <%= f.date_field :reservation_time_end, class: 'form-control' %>
+     <%= f.date_field :reservation_time_end, class: 'form-control', min: Time.now %>
   </div>
   <div class="form-group">
     <%= f.submit "Book this tool", class:"btn btn-primary" %>

@@ -16,6 +16,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       flash[:notice] = "Material booked !"
       redirect_to "/users/#{current_user.id}/reservations_done"
+    else
+      render 'tools/show'
     end
   end
 
