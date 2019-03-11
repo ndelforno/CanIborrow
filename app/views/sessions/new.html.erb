@@ -1,4 +1,4 @@
-<h1>Login</h1>
+
 
 <%= form_tag sessions_path, :method => :post do %>
 
@@ -13,8 +13,8 @@
     <label for="password">Password</label>
     <%= password_field_tag(:password,"",:required => true, class: 'form-control') %>
   </div>
-  <% if flash[:alert] %>
-    <div class="alert alert-danger"><%=flash[:alert] %></div>
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%=flash[:notice] %></div>
   <% end %>
   <div class="form-group">
     <%= submit_tag("Login",class:"btn btn-primary") %>

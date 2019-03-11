@@ -16,8 +16,8 @@ class SessionsController < ApplicationController
       end
 
      else
-       flash[:alert] = "Incorrect Username/Password !"
-       render :new
+       flash[:notice] = "Incorrect Username/Password !"
+       redirect_to "/sessions/new"
      end
    end
 

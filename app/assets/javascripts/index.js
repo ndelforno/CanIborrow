@@ -1,3 +1,6 @@
 document.addEventListener("turbolinks:load", function(event) {
-    $('#navbarDropdown').dropdown()
+  $('#navbarDropdown').dropdown()
+
+
+
 });
