@@ -18,17 +18,17 @@ body{
   color: #ff431e;
 }
 
-.user_login{
-  border: 1px solid lightblue;
-  width: 350px;
-  margin: auto;
-  padding: 20px;
-  background: white;
-  border-radius: 2px;
-  z-index: 600;
-  background-color: white;
-  height: 300px;
-}
+// .user_login{
+//   border: 1px solid lightblue;
+//   width: 300px;
+//   margin: auto;
+//   padding: 20px;
+//   background: white;
+//   border-radius: 2px;
+//   z-index: 600;
+//   background-color: white;
+//   height: 300px;
+// }
 
 
 #stickbar{
@@ -89,6 +89,7 @@ body{
 
 .nav-link{
   color: black;
+  cursor: pointer;
 }
 
 .new_user, .user_login{
