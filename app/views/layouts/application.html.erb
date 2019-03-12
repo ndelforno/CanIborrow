@@ -68,7 +68,7 @@
             <div class="user_option ml-auto">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <%= link_to 'Log In', new_session_path, class:"nav-link", id: "login_button" %>
+                     <p class="signin nav-link">Login</p>
                 </li>
                 <li class="nav-item">
                     <%= link_to 'Sign Up', new_user_path, class:"nav-link" %>
@@ -81,7 +81,7 @@
     </header>
 
     <main class="content">
-      
+      <%= render "sessions/form" %>
 
     <%= yield %>
 

@@ -3,7 +3,8 @@
 <%= form_tag sessions_path, :method => :post do %>
 
 
-<div class="user_login">
+<div class="user_login modal">
+  <button type="button" class="close">x</button>
   <div class="form-group">
     <label for="email">Email address</label>
     <%= text_field_tag(:email,"",:required => true, class: 'form-control', placeholder:"name@example.com") %>
