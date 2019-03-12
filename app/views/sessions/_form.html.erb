@@ -1,4 +1,4 @@
-<%= form_tag sessions_path, :method => :post do %>
+<%= form_tag sessions_path, :method => :post, remote: true do %>
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -18,9 +18,7 @@
           <label for="password">Password</label>
           <%= password_field_tag(:password,"",:required => true, class: 'form-control') %>
         </div>
-        <% if flash[:notice] %>
-          <div class="alert alert-danger"><%=flash[:notice] %></div>
-        <% end %>
+        <ul id="error"></ul>
         <div class="form-group">
           <%= submit_tag("Login",class:"btn btn-primary") %>
         </div>

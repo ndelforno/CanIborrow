@@ -1,3 +1,48 @@
 <h1>Edit your profile</h1>
 
-<%= render 'form_user', user: @user %>
+<%= form_for @user do |f| %>
+<div class="" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Edit Your profile</h5>
+      </div>
+      <div class="modal-body">
+        <% if @user.errors.any? %>
+          <% @user.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+          <% end %>
+        <% end %>
+          <div class="form-group">
+            <label for="first_name">First name</label>
+            <%= f.text_field(:first_name, :required => true, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <label for="last_name">last name</label>
+            <%= f.text_field(:last_name, :required => true, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <%= f.text_field(:address, :required => true, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <%= f.email_field(:email, :required => true, class: 'form-control', placeholder:"name@example.com") %>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <%= f.password_field(:password, :required => true, class: 'form-control') %>
+          </div>
+          <div class="form-group">
+            <label for="password_confirmation">Password Confirmation</label>
+            <%= f.password_field(:password_confirmation, :required => true, class: 'form-control') %>
+          </div>
+
+          <div class="form-group">
+              <%= f.submit(class:"btn btn-primary") %>
+          </div>
+        </div>
+       </div>
+     </div>
+    </div>
+<% end %>

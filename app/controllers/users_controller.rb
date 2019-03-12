@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to request.referer, notice: "Logged in as #{@user.email}!"
     else
-      render :new
+      render json: @user.errors
     end
   end
 

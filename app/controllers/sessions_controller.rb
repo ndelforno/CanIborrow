@@ -9,17 +9,15 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      if flash[:previous_page] && flash[:previous_page] != :login
-        redirect_to flash[:previous_page], info: "Logged in !"
-      else
-        redirect_to request.referer, info: "Logged in as #{@user.first_name} #{@user.last_name} !"
+      return render js: "window.location = '#{request.referrer.present? ? request.referrer : root_path}'"
+    else
+      respond_to do |format|
+       format.html { render 'sessions/form'}
+       format.json { render :json => { :error => @user.errors.full_messages }, :status => 500 }
+       format.js
       end
-
-     else
-       flash[:notice] = "Incorrect Username/Password !"
-       redirect_to request.referer
-     end
-   end
+    end
+  end
 
 
   def destroy
