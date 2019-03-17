@@ -1,7 +1,5 @@
 document.addEventListener("turbolinks:load", function(event) {
   $('#navbarDropdown').dropdown()
 
-  $(document).on("ajax:error", function() {
-   console.log(responseJSON);
- })
+  $(“#helpBlock”).append(‘<div class=”notice”><%= escape_javascript(@errorMessage[0])%></div>’);
 });

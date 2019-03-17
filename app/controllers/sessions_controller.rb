@@ -12,9 +12,13 @@ class SessionsController < ApplicationController
       return render js: "window.location = '#{request.referrer.present? ? request.referrer : root_path}'"
     else
       respond_to do |format|
-       format.html { render 'sessions/form'}
-       format.json { render :json => { :error => @user.errors.full_messages }, :status => 500 }
-       format.js
+         @errorMessage = []
+         format.html { render 'sessions/form'}
+         format.js
+         @user.errors.any?
+         @user.errors.each do |key, value|
+           @errorMessge.push(value)
+       end
       end
     end
   end

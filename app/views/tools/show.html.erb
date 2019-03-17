@@ -27,7 +27,7 @@
       <% if current_user %>
         <%= render partial: 'reservations/form', locals: {tool: @tool, reservation: @reservation} %>
       <% else %>
-        <p>if you want to borrow this tools, please <%= link_to 'Log In', new_session_path %></p>
+        <p>if you want to borrow this tools, please <a href="#" data-toggle="modal" data-target="#loginModal">Log in</a>
       <% end %>
     </div>
 </div>
