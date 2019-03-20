@@ -9,7 +9,7 @@
      <%= f.date_field :reservation_time_end, class: 'form-control', min: Time.now %>
   </div>
   <div class="form-group">
-    <%= f.submit "Book this tool", class:"btn btn-primary" %>
+    <%= f.submit "Book #{tool.name}", class:"btn btn-primary" %>
   </div>
   <% if reservation.errors.any? %>
     <% reservation.errors.full_messages.each do |msg| %>
