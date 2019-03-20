@@ -3,6 +3,11 @@
   <div class= "reservations">
     <div class="pending_res">
       <h3>Pending:</h3>
+      <% if @reservations_pending.length == 0 %>
+      <div class= "reservation_received">
+        <p>You do not have any pending reservation</p>
+      </div>
+      <% end %>
       <% @reservations_pending.each do |res|  %>
         <div class="reservation_received">
           <h4><%= res.tool.name %></h4>
