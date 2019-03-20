@@ -20,10 +20,15 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.tool_form{
+.tool_form, .edit_form {
   border-radius: 2px;
   border: 1px solid lightgrey;
   padding: 20px;
+}
+
+.edit_form{
+  width: 600px;
+  margin: auto;
 }
 
 .column1{
