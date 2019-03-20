@@ -7,10 +7,12 @@
     <p>From: <%= res.reservation_time_start.strftime("%m/%d/%Y") %>
     To: <%= res.reservation_time_end.strftime("%m/%d/%Y") %>
     </p>
+    <p>Material's Address: <%= res.tool.address %></p>
     <p>Status: <%= res.status %></p>
     <p>Days: <%= res.numbers_of_days %></p>
     <p>Price <%= res.tool.price %> $/day</p>
     <p> Total Price: <%= res.numbers_of_days * res.tool.price %> CAD$ </p>
+    <%= link_to "Cancel this Reservation", "/tools/#{res.tool.id}/reservations/#{res.id}", method: :delete, class: "btn btn-danger btn-md", id: "delete_button"%>
   </div>
   <hr>
 <% end %>
