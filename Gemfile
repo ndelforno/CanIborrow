@@ -32,6 +32,8 @@ gem 'jquery-rails'
 
 gem 'factory_bot'
 
+gem 'bundler', '~> 2.0.2'
+
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
                               :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
